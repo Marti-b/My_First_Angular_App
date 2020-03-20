@@ -1,15 +1,13 @@
-<p>tabs works!</p>
+
 <div>
   <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">All</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Light</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Dark</a>
-    </li>
+    <li role="presentation"><a (click) = "onChoose('all')" style="cursor: pointer;">All</a>
+      </li>
+    <li role="presentation"><a (click) = "onChoose('Light')" style="cursor: pointer;">Light</a>
+     </li>
+    <li role="presentation"><a (click) = "onChoose('Dark')" style="cursor: pointer;">Dark</a>
+      </li>
 
   </ul>
+  <app-list [character] = "getCharacters()"></app-list>
 </div>
