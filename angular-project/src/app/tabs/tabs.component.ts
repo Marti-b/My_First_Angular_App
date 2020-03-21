@@ -11,21 +11,21 @@ export class TabsComponent implements OnInit {
     {name: 'Darth Vader', side: ''}
   ];
 
-  chsosenList = 'all';
+  chosenList = 'all';
 
   constructor() { }
 
   ngOnInit(): void {
   }
   onChoose(side){
-    this.chsosenList = side;
+    this.chosenList = side;
   }
   getCharacters(){
-    if(this.chsosenList ='all'){
-      return this.chsosenList.slice();
+    if(this.chosenList ='all'){
+      return this.characters.slice();
     }
     return this.characters.filter((char) =>{
-      return char.side === this.chsosenList;
+      return char.side === this.chosenList;
     })
   }
 

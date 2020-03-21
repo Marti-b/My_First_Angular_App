@@ -1,13 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" (click) ="onChoose('all')" style="cursor: pointer;">All</a>
+ <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>-->
+  <a class="navbar-brand" (click) ="onChoose('light')" style="cursor: pointer;">Light</a>
 
-<div>
-  <ul class="nav nav-tabs">
-    <li role="presentation"><a (click) = "onChoose('all')" style="cursor: pointer;">All</a>
-      </li>
-    <li role="presentation"><a (click) = "onChoose('Light')" style="cursor: pointer;">Light</a>
-     </li>
-    <li role="presentation"><a (click) = "onChoose('Dark')" style="cursor: pointer;">Dark</a>
-      </li>
+  <a class="navbar-brand" (click) ="onChoose('dark')" style="cursor: pointer;">Dark</a>
 
-  </ul>
-  <app-list [character] = "getCharacters()"></app-list>
-</div>
+
+
+</nav>
+<app-list [character] = "getCharacters()"></app-list>
+
+
