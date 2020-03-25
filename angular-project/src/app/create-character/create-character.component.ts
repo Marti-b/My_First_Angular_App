@@ -15,13 +15,15 @@ export class CreateCharacterComponent implements OnInit {
 
   swService : StarWarsService;
 
-  constructor(swService: StarWarsService) { }
+  constructor(swService: StarWarsService) {
+    this.swService= swService;
+  }
 
   ngOnInit(): void {
   }
   onSubmit(submittedForm){
     console.log(submittedForm.value);
-
+    this.swService.addCharacter(submittedForm.value.name, submittedForm.value.side);
   }
 
 }
