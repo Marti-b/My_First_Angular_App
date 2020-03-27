@@ -1,18 +1,16 @@
 <div >
   <ul class="nav nav-tabs">
-    <li role="presentation" [ngClass]="{active: chosenList === 'all'}">
-      <a class="navbar-brand" (click) ="onChoose('all')" style="cursor: pointer;">All</a>
-      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>--></li>
-      <li role="presentation" [ngClass]="{active: chosenList === 'light'}">
-      <a class="navbar-brand" (click) ="onChoose('light')" style="cursor: pointer;">Light</a>
+    <li class="nav-item">
+      <a routerLink="/characters/all" routerLinkActive="active"> All </a>
+     </li>
+      <li class="nav-item">
+      <a routerLink="/characters/light" routerLinkActive="active"> Light </a>
         </li>
-      <li role="presentation" [ngClass]="{active: chosenList === 'dark'}">
-      <a class="navbar-brand" (click) ="onChoose('dark')" style="cursor: pointer;">Dark</a>
+      <li class="nav-item">
+      <a routerLink="/characters/dark"routerLinkActive="active"> Dark </a>
         </li>
   </ul>
-  <app-list [character] = "getCharacters()"></app-list>
+  <router-outlet></router-outlet>
 </div>
 
 
