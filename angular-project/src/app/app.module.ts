@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TabsComponent } from './tabs/tabs.component';
@@ -10,6 +11,12 @@ import { StarWarsService } from './star-wars.service';
 import { LogService } from './log.service';
 import { CreateCharacterComponent } from './create-character/create-character.component';
 import { HeaderComponent } from './header/header.component';
+import { from } from 'rxjs';
+
+const routes = [
+  { path: '', component: TabsComponent},
+  { path: 'new-character', component: CreateCharacterComponent}
+];
 
 @NgModule({
   declarations: [
@@ -22,7 +29,8 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [StarWarsService, LogService],
   bootstrap: [AppComponent]
