@@ -11,7 +11,8 @@ import { StarWarsService } from './star-wars.service';
 import { LogService } from './log.service';
 import { CreateCharacterComponent } from './create-character/create-character.component';
 import { HeaderComponent } from './header/header.component';
-import { from } from 'rxjs';
+
+import { HttpClientModule } from '@angular/common/http';
 
 const routes = [
   { path: 'characters', component: TabsComponent, children: [
@@ -30,12 +31,14 @@ const routes = [
     ListComponent,
     ItemComponent,
     CreateCharacterComponent,
-    HeaderComponent
+    HeaderComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [StarWarsService, LogService],
   bootstrap: [AppComponent]
