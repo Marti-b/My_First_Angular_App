@@ -1,7 +1,10 @@
 import { LogService } from './log.service';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpResponse } from '@angular/common/http'
 import { Subject } from 'rxjs';
+
+import { map } from 'rxjs/operators';
+
 
 @Injectable()
 export class StarWarsService {
@@ -20,9 +23,19 @@ export class StarWarsService {
     this.http = http;
   }
   fetchCharacters() {
-    this.http.get('https://swapi.co/api/people/').subscribe(
-      (response: Response) =>{
-        console.log(response);
+    this.http.get('https://swapi.co/api/people/')
+    .pipe( map( (response: HttpResponse<{}>) => {
+      const data = response;
+      const characters = data['results'].map(char => {
+        return {name: char.name, side: ''};
+      });
+      return characters;
+    }))
+    .subscribe(
+      (data) =>{
+        console.log(data);
+        this.characters= data;
+        this.characterChanged.next();
       }
     );
   }
