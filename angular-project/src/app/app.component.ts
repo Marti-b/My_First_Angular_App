@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StarWarsService } from './star-wars.service';
 
 @Component({
@@ -7,6 +7,17 @@ import { StarWarsService } from './star-wars.service';
   styleUrls: ['./app.component.css'],
   providers: [StarWarsService]
 })
-export class AppComponent {
-  title = 'angular-project';
+export class AppComponent implements OnInit{
+
+  swService: StarWarsService;
+
+  constructor(swService: StarWarsService){
+    this.swService=swService;
+  }
+
+  ngOnInit(){
+
+    this.swService.fetchCharacters();
+
+  }
 }
